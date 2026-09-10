@@ -1,0 +1,288 @@
+:root{--ink:#1c2520;--muted:#68746d;--cream:#f6f3ed;--sand:#e9e1d3;--orange:#ef6f3c;--yellow:#C6A988;--white:#fffdfa}
+
+*
+{box-sizing:border-box
+}
+
+html{scroll-behavior:smooth}
+
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif}
+
+.site-header{height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,6vw,96px);background:var(--cream)}
+
+.brand{color:var(--ink);font-family:"Playfair Display",serif;font-size:27px;font-weight:700;text-decoration:none;letter-spacing:-1.7px}
+
+.brand-mark{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--orange);color:var(--white);font-family:"DM Mono";font-size:18px;margin-right:4px;letter-spacing:0}
+
+.site-header nav{display:flex;gap:30px}
+
+.site-header nav a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:700}
+
+.site-header nav a.active{color:var(--ink)}.saved-button{border:0;background:transparent;color:var(--ink);font:600 13px Manrope;cursor:pointer}
+
+.saved-button span{font-size:21px;vertical-align:-2px;margin-right:4px}
+
+.saved-button b{display:inline-grid;place-items:center;margin-left:3px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--orange);color:#fff;font:11px "DM Mono"}
+
+.hero{padding:84px clamp(24px,14vw,230px) 110px;background:var(--yellow);position:relative;overflow:hidden}
+
+.hero:after{content:"";position:absolute;width:450px;height:450px;border:46px solid rgba(255,253,250,.35);border-radius:50%;right:-175px;top:-140px}
+
+.eyebrow,.overline{font:500 11px "DM Mono";letter-spacing:1.5px}
+
+.eyebrow{display:flex;align-items:center;gap:10px}
+
+.eyebrow span{width:27px;height:2px;background:var(--orange)}
+
+h1,h2,p{margin-top:0}
+
+.hero h1{font:700 clamp(43px,6.1vw,82px)/.98 "Playfair Display",serif;letter-spacing:-3.4px;margin:25px 0 24px;position:relative;z-index:1}
+
+.hero h1 em{color:var(--orange);font-weight:600}
+
+.hero>p{max-width:540px;font-size:15px;line-height:1.8;color:#354039}
+
+.search-panel{display:flex;align-items:center;gap:16px;background:var(--white);border-radius:7px;padding:8px 8px 8px 21px;max-width:810px;box-shadow:0 11px 22px rgba(75,57,26,.11);margin-top:35px;position:relative;z-index:1}
+
+.search-field,.location-field{display:flex;align-items:center;gap:10px}
+
+.search-field{flex:1}
+
+.search-field span,.location-field span{font-size:20px;color:var(--orange)}
+
+input,select{border:0;background:transparent;color:var(--ink);font:500 13px Manrope;outline:none;width:100%}
+
+input::placeholder{color:#8b938d}
+
+.form-divider{width:1px;height:25px;background:#e4e0d8}
+
+.location-field{width:178px}
+
+.location-field select{appearance:none;cursor:pointer}
+
+.primary-button{border:0;border-radius:5px;background:var(--ink);color:#fff;padding:14px 19px;font:700 12px Manrope;white-space:nowrap;cursor:pointer}
+
+.primary-button span,.neighborhood-header button span{font-size:18px;margin-left:8px}
+
+.nearby-link{margin-top:15px;border:0;background:transparent;padding:0;color:#5c604c;font:600 12px Manrope;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
+.content-section{max-width:1215px;margin:0 auto;padding:84px 24px 96px}
+
+.section-heading,.toolbar,.neighborhood-header{display:flex;align-items:end;justify-content:space-between;gap:25px}
+
+.overline{margin-bottom:13px;color:var(--orange)}
+
+h2{font:700 clamp(27px,3.5vw,42px)/1.1 "Playfair Display",serif;letter-spacing:-1.7px}
+
+.result-count{font:500 12px "DM Mono";color:var(--muted);margin:0 0 7px}
+
+.toolbar{align-items:center;margin:37px 0 27px}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+
+.filter-chip{border:1px solid #d8d3c8;border-radius:20px;padding:9px 13px;background:transparent;color:#59645d;font:600 11px Manrope;cursor:pointer}
+
+.filter-chip.selected{border-color:var(--ink);background:var(--ink);color:#fff}
+
+.sort-control{font-size:11px;color:var(--muted);white-space:nowrap}
+
+.sort-control select{width:auto;font-weight:700;margin-left:5px;cursor:pointer}
+
+.finder-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(230px,1fr);gap:25px}
+
+.cafe-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+
+.cafe-card{border-radius:6px;background:var(--white);overflow:hidden;box-shadow:0 3px 15px rgba(49,43,34,.05);transition:transform .2s,box-shadow .2s}
+
+.cafe-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(49,43,34,.11)}
+
+.card-image{height:166px;padding:12px;display:flex;justify-content:space-between;align-items:flex-start;background-size:cover;background-position:center}
+
+.card-image .tag{color:#fff;background:rgba(28,37,32,.84);border-radius:20px;padding:6px 8px;font:10px "DM Mono"}
+
+.save-card{width:31px;height:31px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:21px;line-height:1;cursor:pointer}
+
+.save-card.saved{color:var(--orange)}
+
+.card-body{padding:16px 16px 17px;cursor:pointer}
+
+.card-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font:10px "DM Mono"}
+
+.rating{color:#a46f18}
+
+.card-body h3{font-size:15px;margin:11px 0 7px;letter-spacing:-.3px}
+
+.address{font-size:11px;color:var(--muted);margin:0}
+
+.map-card{position:relative;min-height:440px;overflow:hidden;border-radius:6px;background:#c8d7cb;background-image:linear-gradient(120deg,transparent 45%,rgba(255,253,250,.7) 45% 49%,transparent 49%),linear-gradient(20deg,transparent 35%,rgba(255,253,250,.85) 35% 39%,transparent 39%),linear-gradient(160deg,transparent 55%,rgba(255,253,250,.65) 55% 58%,transparent 58%)}
+
+.map-title{position:absolute;top:12px;left:12px;right:12px;z-index:2;padding:10px;background:rgba(255,253,250,.92);font:500 10px "DM Mono";letter-spacing:.7px}
+
+.map-title span{color:var(--orange);font-size:17px;vertical-align:-2px}
+
+.map-title button{float:right;border:0;background:transparent;font-size:16px;cursor:pointer}
+
+.streets{position:absolute;background:rgba(255,253,250,.6);height:17px;transform:rotate(-43deg);width:150%;left:-30%}
+
+.street-one{top:30%}.street-two{top:61%;transform:rotate(30deg)}
+
+.street-three{top:77%;transform:rotate(-11deg)}
+
+.map-pins{position:absolute;inset:48px 0 0}
+
+.pin{position:absolute;width:25px;height:25px;border:3px solid #fff;border-radius:50% 50% 50% 0;background:var(--orange);transform:rotate(-45deg);box-shadow:0 2px 6px #50645c;cursor:pointer}
+
+.pin:after{content:"";position:absolute;width:7px;height:7px;left:6px;top:6px;border-radius:50%;background:#fff}
+
+.map-legend{position:absolute;bottom:13px;left:13px;padding:8px 10px;border-radius:3px;background:rgba(255,253,250,.88);font-size:10px}
+
+.legend-dot{display:inline-block;width:7px;height:7px;background:var(--orange);border-radius:50%;margin-right:5px}
+
+.empty-state{text-align:center;padding:55px;background:var(--white);margin-top:20px}
+
+.empty-state p{font:600 16px Manrope}
+
+.empty-state button{background:none;border:0;color:var(--orange);text-decoration:underline;cursor:pointer}
+
+.neighborhood-strip{background:var(--ink);color:#fff;padding:76px max(24px,calc((100% - 1167px)/2)) 86px}
+
+.neighborhood-strip .overline{color:#efaf55}
+
+.neighborhood-header{align-items:center}
+
+.neighborhood-header h2{margin-bottom:30px}
+
+.neighborhood-header button{margin-bottom:30px;border:0;background:none;color:#fff;font:600 12px Manrope;cursor:pointer}
+
+.area-list{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #59625d}.area-list button{position:relative;min-height:151px;padding:22px 20px;text-align:left;border:0;border-right:1px solid #59625d;background:transparent;color:#fff;cursor:pointer}
+
+.area-list button:first-child{padding-left:0}
+
+.area-number{display:block;color:#efaf55;font:11px "DM Mono"}
+
+.area-list strong{display:block;margin-top:20px;font:600 21px "Playfair Display"}
+
+.area-list small{display:block;margin-top:7px;color:#bfc7c1;font-size:10px}
+
+.area-list i{position:absolute;right:20px;top:48%;font-size:20px;font-style:normal;color:#efaf55}
+
+footer{display:flex;justify-content:space-between;align-items:center;padding:32px max(24px,calc((100% - 1167px)/2));background:#e7e0d4;color:var(--muted);font:11px "DM Mono"}
+
+footer p{margin:0}.cafe-dialog{width:min(520px,calc(100% - 35px));border:0;border-radius:9px;padding:32px;background:var(--white);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+
+.cafe-dialog::backdrop{background:rgba(21,30,25,.5)}
+
+.dialog-close{position:absolute;right:15px;top:10px;border:0;background:none;font-size:29px;cursor:pointer}
+
+.dialog-label{color:var(--orange);font:11px "DM Mono"}
+
+.cafe-dialog h2{margin:12px 0}
+
+.dialog-info{font-size:13px;color:var(--muted);line-height:1.8}
+
+.dialog-features{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+
+.dialog-features span{padding:6px 9px;border-radius:15px;background:#f0ece4;font-size:11px}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,100px);transition:transform .25s;padding:12px 18px;border-radius:4px;background:var(--ink);color:#fff;font-size:12px;z-index:5}
+
+.toast.show{transform:translate(-50%,0)}
+
+.hero > :not(.animation-container){position:relative;z-index:1}
+
+.animation-container{position:absolute;z-index:0;right:clamp(22px,7vw,130px);top:108px;width:min(36vw,360px);height:min(36vw,360px);display:grid;place-items:center;pointer-events:none}
+
+.sliding-picture{width:100%;height:100%;object-fit:contain;opacity:0;transform:translateX(180px);filter:drop-shadow(0 24px 20px rgba(93,54,29,.2));animation:cup-arrives 1.15s cubic-bezier(.22,.8,.28,1) .2s forwards}
+
+.animation-container img {
+    width: 150%;
+    height: auto;
+}
+
+.vapour {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    float: right;
+    left: 250px;
+    padding: 0 200px;
+    margin-top: 200px;
+    animation:cup-arrives 1.15s cubic-bezier(.22,.8,.28,1) .2s forwards;
+}
+
+.vapour span {
+    position: relative;
+    bottom: 50px;
+    display: block;
+    margin: 0 2px 50px;
+    height: 120px;
+    min-width: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+    opacity: 0;
+    filter: blur(8px);
+    animation-delay: calc((var(--i) * -0.5s));
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-150px) scaleX(5);
+    }
+    95% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-300px) scaleX(10);
+    }
+}
+
+@keyframes cup-arrives{from{opacity:0;transform:translateX(180px)}to{opacity:1;transform:translateX(0)}}
+
+@media(prefers-reduced-motion:reduce){.sliding-picture{opacity:1;transform:none;animation:none}}
+
+@media(max-width:900px){.hero{padding-left:8vw;padding-right:8vw}
+    .animation-container{right:2vw;width:38vw;height:38vw;opacity:.5}
+    .cafe-grid{grid-template-columns:repeat(2,1fr)}
+    .finder-layout{grid-template-columns:1fr}
+    .map-card{min-height:220px}.map-pins{display:none}
+}
+
+@media(max-width:620px){.site-header{padding:0 20px}
+    .site-header nav{display:none}.hero{padding-top:60px;padding-bottom:72px}
+    .animation-container{width:270px;height:270px;right:-95px;top:5px;opacity:.2}
+
+    .hero h1{letter-spacing:-2px}.search-panel{display:grid;grid-template-columns:1fr;padding:15px;gap:13px}
+
+    .form-divider{display:none}
+    .location-field{width:auto;border-top:1px solid #e5e0d8;padding-top:10px}
+    .primary-button{width:100%}.content-section{padding-top:55px}
+    .section-heading,.toolbar{align-items:flex-start;flex-direction:column;gap:8px}
+    .toolbar{margin-top:24px}
+    .sort-control{align-self:flex-end}
+    .cafe-grid{grid-template-columns:1fr}
+    .card-image{height:190px}
+    .area-list{grid-template-columns:1fr}
+    .area-list button,.area-list button:first-child{border-right:0;border-bottom:1px solid #59625d;padding-left:0;min-height:115px}
+    .area-list button:last-child{border-bottom:0}
+    .neighborhood-header{align-items:start;flex-direction:column}
+    .neighborhood-header button{margin-top:-20px}footer{flex-direction:column;gap:13px;align-items:flex-start}
+    .result-count{margin:0}
+    .vapour {
+        position: absolute;
+        display: flex;
+        z-index: 1;
+        float: right;
+        left: 350px;
+        padding: 0 200px;
+        margin-top: 100px;
+        animation:cup-arrives 1.15s cubic-bezier(.22,.8,.28,1) .2s forwards;
+    }
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A responsive cafe finder built with vanilla JavaScript." />
+    <title>AZ Cafe finder - Find your nearest Cafe in Peoria AZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Pour home"><span class="brand-mark">p</span>Peoria Arizona café finder</a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="#discover">Discover</a>
+        <a href="#neighborhoods">Neighborhoods</a>
+        <a href="#about">About</a>
+      </nav>
+      <button class="saved-button" id="savedButton" aria-label="View saved cafes">
+        <span aria-hidden="true">♡</span> Saved <b id="savedCount">0</b>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="discover">
+        <div class="vapour">
+          <span style="--i:1;"></span>
+          <span style="--i:3;"></span>
+          <span style="--i:16;"></span>
+          <span style="--i:5;"></span>
+          <span style="--i:13;"></span>
+          <span style="--i:20;"></span>
+          <span style="--i:6;"></span>
+          <span style="--i:7;"></span>
+          <span style="--i:10;"></span>
+          <span style="--i:8;"></span>
+          <span style="--i:17;"></span>
+          <span style="--i:11;"></span>
+          <span style="--i:12;"></span>
+          <span style="--i:14;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:9;"></span>
+          <span style="--i:15;"></span>
+          <span style="--i:4;"></span>
+          <span style="--i:18;"></span>
+          <span style="--i:19;"></span>
+        </div>
+        <div class="animation-container">
+          <img class="sliding-picture" src="animated_coffee.png" alt="Cup of coffee" />
+        </div>
+        <h1>Find the café in Peoria, AZ<br /><em>That can brighten your day.</em></h1>
+        <p>From quiet corners for deep work to sunlit tables for a slow morning — discover your next favorite place.</p>
+        <form class="search-panel" id="searchForm">
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search cafés, neighborhoods, or vibes" autocomplete="off" />
+          </label>
+          <span class="form-divider"></span>
+          <label class="location-field">
+            <span aria-hidden="true">⌖</span>
+            <select id="neighborhoodSelect" aria-label="Choose neighborhood">
+              <option value="all">Every neighborhood</option>
+              <option value="Arts District">Arts District</option>
+              <option value="Downtown">Downtown</option>
+              <option value="Eastside">Eastside</option>
+              <option value="Riverside">Riverside</option>
+              <option value="Midtown">Midtown</option>
+            </select>
+          </label>
+          <button class="primary-button" type="submit">Find cafés <span>→</span></button>
+        </form>
+        <button class="nearby-link" id="nearbyButton">◎ Use my current location</button>
+      </section>
+
+      <section class="content-section" aria-labelledby="resultsHeading">
+        <div class="section-heading">
+          <div>
+            <p class="overline">EXPLORE THE CITY</p>
+            <h2 id="resultsHeading">Cafés worth stepping into</h2>
+          </div>
+          <p id="resultCount" class="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="toolbar">
+          <div class="filters" aria-label="Filter cafés">
+            <button class="filter-chip selected" data-filter="all">All cafés</button>
+            <button class="filter-chip" data-filter="work">Laptop friendly</button>
+            <button class="filter-chip" data-filter="outdoor">Outdoor seating</button>
+            <button class="filter-chip" data-filter="roaster">In-house roaster</button>
+            <button class="filter-chip" data-filter="brunch">Brunch</button>
+          </div>
+          <label class="sort-control">Sort by
+            <select id="sortSelect">
+              <option value="recommended">Recommended</option>
+              <option value="rating">Top rated</option>
+              <option value="distance">Closest first</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="finder-layout">
+          <div id="cafeGrid" class="cafe-grid" aria-live="polite"></div>
+          <aside class="map-card" aria-label="Cafe location map">
+            <div class="map-title"><span>⌖</span> CENTRAL CITY <button id="expandMap" aria-label="Expand map">↗</button></div>
+            <div class="streets street-one"></div><div class="streets street-two"></div><div class="streets street-three"></div>
+            <div id="mapPins" class="map-pins"></div>
+            <div class="map-legend"><span class="legend-dot"></span> Your results</div>
+          </aside>
+        </div>
+        <div id="emptyState" class="empty-state" hidden>
+          <p>No cafés match that search.</p><button id="clearButton">Clear filters</button>
+        </div>
+      </section>
+
+      <section class="neighborhood-strip" id="neighborhoods">
+        <p class="overline">PICK A VIBE</p>
+        <div class="neighborhood-header"><h2>Start with a neighborhood</h2><button id="browseAreas">Browse all areas <span>→</span></button></div>
+        <div class="area-list">
+          <button data-area="Arts District"><span class="area-number">01</span><strong>Arts District</strong><small>Colorful, creative, always brewing</small><i>↗</i></button>
+          <button data-area="Downtown"><span class="area-number">02</span><strong>Park West</strong><small>Fast-paced coffee breaks</small><i>↗</i></button>
+          <button data-area="Riverside"><span class="area-number">03</span><strong>Lake Pleasant</strong><small>Slow mornings by the water</small><i>↗</i></button>
+        </div>
+      </section>
+    </main>
+
+    <footer id="about"><a class="brand" href="#top"><span class="brand-mark">p</span>Peoria Arizona café finder</a><p>Made for the ritual of a good cup.</p></footer>
+    <dialog id="cafeDialog" class="cafe-dialog"><button class="dialog-close" aria-label="Close details">×</button><div id="dialogContent"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
